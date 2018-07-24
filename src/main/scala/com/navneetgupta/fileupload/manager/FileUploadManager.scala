@@ -1,15 +1,12 @@
 package com.navneetgupta.fileupload.manager
 
 import akka.actor.Props
-import akka.actor.ActorLogging
-import akka.actor.Actor
-import com.navneetgupta.fileupload.command.UploadFile
+import com.navneetgupta.fileupload.common.BaseActor
+import akka.stream.ActorMaterializer
+import com.navneetgupta.fileupload.command._
 import java.io.FileOutputStream
 import akka.util.ByteString
 import java.util.UUID
-import akka.stream.ActorMaterializer
-import com.navneetgupta.fileupload.command.FileDetails
-import com.navneetgupta.fileupload.common.BaseActor
 
 object FileUploadManager {
   def props = Props[FileUploadManager]

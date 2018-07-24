@@ -3,8 +3,6 @@ package com.navneetgupta.fileupload.protocols
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json._
 import java.util.Date
-import scala.math.BigDecimal
-import com.navneetgupta.fileupload.command.UploadFile
 import com.navneetgupta.fileupload.command.FileDetails
 
 trait FileUploadJsonProtocol extends SprayJsonSupport with DefaultJsonProtocol {

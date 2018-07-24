@@ -7,14 +7,8 @@ import akka.actor.ActorSystem
 import akka.stream.Materializer
 import akka.http.scaladsl.server.Route
 import akka.http.scaladsl.model.Multipart
-import com.navneetgupta.fileupload.common.ApiResponse
-import com.navneetgupta.fileupload.command.FileDetails
-import com.navneetgupta.fileupload.command.UploadFile
-import java.io.FileOutputStream
-import akka.util.ByteString
-import akka.http.scaladsl.model.HttpResponse
+import com.navneetgupta.fileupload.command._
 import akka.http.scaladsl.model.StatusCodes
-import java.util.Optional
 import com.navneetgupta.fileupload.protocols.FileUploadJsonProtocol
 import com.typesafe.config.ConfigFactory
 
