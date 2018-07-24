@@ -3,4 +3,4 @@
 ## For running the example
   ```sbt "runMain com.navneetgupta.fileupload.Main"```
 
-Change the base location in FileUploadRoutes.scala
+Change the base location in application.conf
