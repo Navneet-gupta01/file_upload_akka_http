@@ -10,13 +10,13 @@ import akka.http.scaladsl.model.Multipart
 import com.navneetgupta.fileupload.common.ApiResponse
 import com.navneetgupta.fileupload.command.FileDetails
 import com.navneetgupta.fileupload.command.UploadFile
-import java.util.UUID
 import java.io.FileOutputStream
 import akka.util.ByteString
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.StatusCodes
 import java.util.Optional
 import com.navneetgupta.fileupload.protocols.FileUploadJsonProtocol
+import com.typesafe.config.ConfigFactory
 
 class FileUploadRoutes(fileUploadActor: ActorRef)(implicit val ec: ExecutionContext) extends BaseRouteDefination with FileUploadJsonProtocol {
 
@@ -28,8 +28,7 @@ class FileUploadRoutes(fileUploadActor: ActorRef)(implicit val ec: ExecutionCont
       pathEndOrSingleSlash {
         post {
           entity(as[Multipart.FormData]) { fileData =>
-            println("Got Request ")
-            val baseFilePath = "" //System.getProperty("java.io.tmpdir") TODO Change here base folder
+            val baseFilePath = ConfigFactory.load().getString("file-upload.base-location")
             serviceAndComplete[FileDetails](UploadFile(baseFilePath, fileData), fileUploadActor)
           }
         }
